@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método Renda Certa - Domine Seu Dinheiro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.5;
+            color: #FFFFFF;
+            background-color: #0B2B5A;
+            font-size: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0B2B5A 0%, #1a3d73 100%);
+            padding: 40px 0 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100%;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(93, 173, 226, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(93, 173, 226, 0.08) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            line-height: 1.2;
+            margin: 0 0 16px 0;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            margin-bottom: 32px;
+            color: #5DADE2;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .cta-button {
+            background: #00FF88;
+            color: #000000;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            width: 90%;
+            max-width: 320px;
+            text-align: center;
+        }
+
+        .cta-button:hover,
+        .cta-button:active {
+            background: #00e67a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+            animation: buttonPress 0.1s ease;
+        }
+
+        @keyframes buttonPress {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.98); }
+            100% { transform: scale(1); }
+        }
+
+        /* Sections */
+        .section {
+            padding: 40px 0;
+        }
+
+        .section-light {
+            background: #5DADE2;
+            color: #0B2B5A;
+        }
+
+        .section-dark {
+            background: #0B2B5A;
+            color: #FFFFFF;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 0 0 24px 0;
+            line-height: 1.3;
+        }
+
+        /* Problem Section */
+        .problem-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .problem-item {
+            background: rgba(11, 43, 90, 0.15);
+            padding: 20px 16px;
+            border-radius: 12px;
+            text-align: center;
+            border-left: 4px solid #0B2B5A;
+        }
+
+        .problem-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .problem-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            margin: 0 0 8px 0;
+        }
+
+        .problem-item p {
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Solution Section */
+        .solution-content {
+            text-align: center;
+            max-width: 100%;
+        }
+
+        .solution-highlight {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #5DADE2;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .solution-text {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Benefits Section */
+        .benefits-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .benefit-item {
+            background: rgba(0, 255, 136, 0.1);
+            padding: 20px 16px;
+            border-radius: 12px;
+            text-align: center;
+            border-left: 4px solid #00FF88;
+        }
+
+        .benefit-icon {
+            font-size: 2rem;
+            color: #00FF88;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .benefit-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            margin: 0 0 8px 0;
+            color: #0B2B5A;
+        }
+
+        .benefit-item p {
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.4;
+            color: #0B2B5A;
+        }
+
+        /* Author Section */
+        .author-section {
+            text-align: center;
+        }
+
+        .author-highlight {
+            background: rgba(93, 173, 226, 0.15);
+            padding: 24px 16px;
+            border-radius: 16px;
+            margin: 24px 0;
+            border: 2px solid #5DADE2;
+        }
+
+        .author-highlight p {
+            margin: 0 0 16px 0;
+            line-height: 1.5;
+        }
+
+        .author-highlight p:last-child {
+            margin-bottom: 0;
+        }
+
+        .author-quote {
+            color: #5DADE2;
+            font-weight: 600;
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonial {
+            background: rgba(11, 43, 90, 0.15);
+            padding: 20px 16px;
+            border-radius: 12px;
+            margin: 16px 0;
+            border-left: 4px solid #00FF88;
+        }
+
+        .testimonial p {
+            margin: 0 0 12px 0;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #0B2B5A;
+        }
+
+        .testimonial-name {
+            color: #00FF88;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #0B2B5A 0%, #1a3d73 100%);
+            text-align: center;
+            position: relative;
+            padding: 50px 0;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(93, 173, 226, 0.1) 0%, transparent 70%);
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .urgency-text {
+            color: #00FF88;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .final-description {
+            font-size: 1rem;
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+
+        .guarantee-text {
+            margin-top: 16px;
+            font-size: 0.85rem;
+            color: #5DADE2;
+            line-height: 1.4;
+        }
+
+        /* Growth Chart Animation */
+        .growth-chart {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 60px;
+            margin: 20px 0;
+            gap: 4px;
+        }
+
+        .bar {
+            width: 8px;
+            background: #00FF88;
+            border-radius: 4px 4px 0 0;
+            animation: growUp 2s ease-out infinite;
+        }
+
+        .bar:nth-child(1) { height: 20px; animation-delay: 0s; }
+        .bar:nth-child(2) { height: 35px; animation-delay: 0.2s; }
+        .bar:nth-child(3) { height: 50px; animation-delay: 0.4s; }
+        .bar:nth-child(4) { height: 40px; animation-delay: 0.6s; }
+        .bar:nth-child(5) { height: 60px; animation-delay: 0.8s; }
+
+        @keyframes growUp {
+            0% { transform: scaleY(0); }
+            50% { transform: scaleY(1.1); }
+            100% { transform: scaleY(1); }
+        }
+
+        /* Tablet adjustments */
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 32px;
+                max-width: 768px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .hero {
+                padding: 60px 0 70px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .problem-grid,
+            .benefits-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        /* Desktop adjustments */
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1024px;
+                padding: 0 40px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .cta-button {
+                width: auto;
+                min-width: 320px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Domine Seu Dinheiro e Conquiste Liberdade Financeira</h1>
+                <p class="hero-subtitle">O método prático que vai transformar sua vida financeira para sempre</p>
+                <div class="growth-chart">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <a href="https://pay.kiwify.com.br/YHUkSKX" class="cta-button">Quero Dominar Meu Dinheiro Agora!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problema -->
+    <section class="section section-light">
+        <div class="container">
+            <h2 class="section-title">Você Está Cansado de Viver Assim?</h2>
+            <div class="problem-grid">
+                <div class="problem-item">
+                    <span class="problem-icon">😰</span>
+                    <h3>Desorganização Total</h3>
+                    <p>Não sabe para onde vai seu dinheiro</p>
+                </div>
+                <div class="problem-item">
+                    <span class="problem-icon">💳</span>
+                    <h3>Dívidas Crescendo</h3>
+                    <p>Cartão estourado e contas acumulando</p>
+                </div>
+                <div class="problem-item">
+                    <span class="problem-icon">😱</span>
+                    <h3>Medo de Investir</h3>
+                    <p>Quer fazer o dinheiro render mas não sabe como</p>
+                </div>
+                <div class="problem-item">
+                    <span class="problem-icon">⏰</span>
+                    <h3>Sem Planejamento</h3>
+                    <p>Vive o presente sem pensar no futuro</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solução -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Método Renda Certa: Sua Solução Definitiva</h2>
+            <div class="solution-content">
+                <p class="solution-highlight">
+                    Sistema completo para organizar finanças, quitar dívidas e construir patrimônio
+                </p>
+                <p class="solution-text">
+                    <strong>Não importa sua situação atual.</strong> Este método funciona com qualquer renda. Você vai aprender passo a passo como transformar sua vida financeira de forma prática e definitiva.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section class="section section-light">
+        <div class="container">
+            <h2 class="section-title">O Que Você Vai Conquistar</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <span class="benefit-icon">📊</span>
+                    <h3>Controle Total</h3>
+                    <p>Saiba onde está cada centavo</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🎯</span>
+                    <h3>Metas Claras</h3>
+                    <p>Alcance objetivos com precisão</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">📈</span>
+                    <h3>Investimentos Inteligentes</h3>
+                    <p>Dinheiro trabalhando para você</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🛡️</span>
+                    <h3>Estabilidade</h3>
+                    <p>Reserva de emergência garantida</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🗽</span>
+                    <h3>Liberdade Financeira</h3>
+                    <p>Independência para seus sonhos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre o Criador -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="author-section">
+                <h2 class="section-title">Conheça Matheus Ribeiro</h2>
+                <div class="author-highlight">
+                    <p>
+                        <strong>Especialista em Educação Financeira</strong> com mais de 8 anos transformando vidas através do controle financeiro.
+                    </p>
+                    <p>
+                        Já orientou milhares de pessoas a saírem do vermelho e construírem patrimônio. Seu método prático transformou famílias inteiras.
+                    </p>
+                    <p class="author-quote">
+                        "Educação financeira deveria ser ensinada nas escolas. Como não é, criei este método para democratizar esse conhecimento."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="section section-light">
+        <div class="container">
+            <h2 class="section-title">Veja os Resultados Reais</h2>
+            <div class="testimonial">
+                <p>"Em 6 meses quitei R$ 15.000 em dívidas e criei minha reserva. O método é incrível!"</p>
+                <p class="testimonial-name">- Maria Silva, Professora</p>
+            </div>
+            <div class="testimonial">
+                <p>"Nunca pensei que conseguiria investir. Hoje tenho renda passiva crescendo todo mês."</p>
+                <p class="testimonial-name">- João Santos, Vendedor</p>
+            </div>
+            <div class="testimonial">
+                <p>"Minha família toda mudou. Agora temos controle e estamos realizando nossos sonhos."</p>
+                <p class="testimonial-name">- Ana Costa, Empresária</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="final-cta" id="comprar">
+        <div class="container">
+            <div class="final-cta-content">
+                <h2 class="section-title">Comece Hoje e Transforme Sua Relação com o Dinheiro</h2>
+                <p class="urgency-text">Não deixe mais um dia passar vivendo sem controle financeiro</p>
+                <p class="final-description">
+                    Sua liberdade financeira está a um clique de distância. Tome a decisão que vai mudar sua vida para sempre.
+                </p>
+                <a href="https://pay.kiwify.com.br/YHUkSKX" target="_blank" rel="noopener noreferrer" class="cta-button">
+                    Quero Dominar Meu Dinheiro Agora!
+                </a>
+                <p class="guarantee-text">
+                    ✅ Acesso imediato<br>
+                    ✅ Garantia de 7 dias<br>
+                    ✅ Suporte completo
+                </p>
+            </div>
+        </div>
+    </section>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99460f0fd74a1433',t:'MTc2MTQ0MDg2OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
